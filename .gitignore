@@ -1,0 +1,6 @@
+/todo/todo
+
+# Go artifacts
+*.exe
+*.test
+*.out
