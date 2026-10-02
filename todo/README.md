@@ -70,11 +70,11 @@ The command removes the row whose ID matches the supplied ID.
 ## Logging and output
 
 - `list` prints the task table to standard output.
-- Successful `add`, `completed`, and `delete` operations print timestamped log messages to standard error.
+- Successful `add`, `completed`, and `delete` operations print timestamped log messages to standard error. Where applicable, messages include the todo ID.
 - Invalid input and file failures print timestamped fatal log messages to standard error.
 
 Example:
 
 ```text
-2026/10/02 17:21:42 Added new todo Write documentation
+2026/10/02 17:21:42 Added todo "Write documentation" (ID: 96c00a4f-6157-4e2d-8af3-921745f5caa4, status: Pending)
 ```

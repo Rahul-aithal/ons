@@ -43,7 +43,7 @@ func listItem(cmd *cobra.Command, args []string) {
 	fmt.Fprintln(w, "--\t----\t------\t---")
 	u, err := user.Current()
 	if err != nil {
-		panic("User not found")
+		log.Fatalf("Unable to determine current user: %v", err)
 	}
 	dataFile := service.GetEnv("DB_FILE", fmt.Sprintf("%s/data.csv", u.HomeDir))
 
@@ -54,7 +54,7 @@ func listItem(cmd *cobra.Command, args []string) {
 
 		if crerr != nil {
 
-			log.Fatal("Unable to create "+dataFile, crerr)
+			log.Fatalf("Unable to create data file %q: %v", dataFile, crerr)
 		}
 		file = newFile
 
@@ -65,7 +65,7 @@ func listItem(cmd *cobra.Command, args []string) {
 	csvData, cerr := csvRedar.ReadAll()
 
 	if cerr != nil {
-		log.Fatal("Unable to parse file as CSV for "+dataFile, err)
+		log.Fatalf("Unable to parse data file %q as CSV: %v", dataFile, cerr)
 	}
 
 	for _, line := range csvData {

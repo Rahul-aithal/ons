@@ -12,3 +12,7 @@
 ### Documented current behavior
 
 - `completed ID` currently marks rows whose ID differs from the supplied ID as `Completed`, rather than the matching row. The behavior is documented only; no logic was changed.
+
+### Changed
+
+- Updated runtime log messages to include todo IDs and clearer error context.

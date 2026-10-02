@@ -48,16 +48,16 @@ func deleteItem(cmd *cobra.Command, args []string) {
 	id := args[0]
 	u, uerr := user.Current()
 	if uerr != nil {
-		log.Fatalf("User not found %s", uerr)
+		log.Fatalf("Unable to determine current user: %v", uerr)
 	}
 	filePath := service.GetEnv("DB_FILE", fmt.Sprintf("%s/data.csv", u.HomeDir))
 	todo, err := delteFromCSV(filePath, id)
 
 	if err != nil {
-		log.Fatalf("deleting Failed %s", err)
+		log.Fatalf("Unable to delete todo %q from data file %q: %v", id, filePath, err)
 	}
 
-	log.Printf("Deleted todo %s\n", todo.Name)
+	log.Printf("Deleted todo %q (ID: %s)", todo.Name, todo.Id)
 }
 
 func delteFromCSV(filePath, id string) (types.Todo, error) {

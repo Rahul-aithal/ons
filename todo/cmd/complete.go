@@ -48,16 +48,16 @@ func completeItem(cmd *cobra.Command, args []string) {
 	id := args[0]
 	u, uerr := user.Current()
 	if uerr != nil {
-		log.Fatalf("User not found %s", uerr)
+		log.Fatalf("Unable to determine current user: %v", uerr)
 	}
 	filePath := service.GetEnv("DB_FILE", fmt.Sprintf("%s/data.csv", u.HomeDir))
 	todo, err := updateCsv(filePath, id)
 
 	if err != nil {
-		log.Fatalf("Update Failed %s", err)
+		log.Fatalf("Unable to update todo %q in data file %q: %v", id, filePath, err)
 	}
 
-	log.Printf("Updated todo %s\n", todo.Name)
+	log.Printf("Updated todo %q (ID: %s)", todo.Name, todo.Id)
 }
 
 func updateCsv(filePath, id string) (types.Todo, error) {

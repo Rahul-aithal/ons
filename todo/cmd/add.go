@@ -60,7 +60,7 @@ func addItem(cmd *cobra.Command, args []string) {
 		dueTime, derr := time.Parse(timeFormat, todo.Due)
 
 		if derr != nil {
-			log.Fatalf("Due date parsing error %s", derr)
+			log.Fatalf("Invalid due date %q: expected DD-MM-YYYY: %v", todo.Due, derr)
 		}
 		timeLeft := time.Until(dueTime)
 		if timeLeft <= 0 {
@@ -69,16 +69,16 @@ func addItem(cmd *cobra.Command, args []string) {
 	}
 	u, uerr := user.Current()
 	if uerr != nil {
-		log.Fatalf("User not found %s", uerr)
+		log.Fatalf("Unable to determine current user: %v", uerr)
 	}
 	filePath := service.GetEnv("DB_FILE", fmt.Sprintf("%s/data.csv", u.HomeDir))
 	err := appendToCSV(filePath, []string{todo.Id, todo.Name, todo.Status, todo.Due, todo.Description, todo.Priority})
 
 	if err != nil {
-		log.Fatalf("Append Failed %s", err)
+		log.Fatalf("Unable to append todo to data file %q: %v", filePath, err)
 	}
 
-	log.Printf("Added new todo %s\n", todo.Name)
+	log.Printf("Added todo %q (ID: %s, status: %s)", todo.Name, todo.Id, todo.Status)
 }
 
 func appendToCSV(filePath string, row []string) error {
