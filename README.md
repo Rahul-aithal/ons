@@ -1,16 +1,20 @@
 # ONS
 
-**ONS** means **One Night Stand** in this repository.
+**ONS** stands for **One Night Stand**.
 
-Here, *One Night Stand* means the code is written mostly by hand (around 95%) in one night, with minimal AI assistance.
+In this repository, that means building software in a classic old-school way:
 
-## Why this exists
+- around **95% handwritten code**
+- completed in **one focused night**
+- **minimal AI assistance**
 
-This repository style exists because of this request:
+## Why this repository exists
+
+This repository follows the brief:
 
 > "Hey write Readme for this, ons means one night stand, for this one night stand means the code written by hand (95%) without ai in one night, write code in the classic cold old way."
 
-So ONS represents building software in a classic old-school way: primarily handwritten code, focused and fast, done in one night.
+So ONS is intentionally about speed, focus, and craftsmanship—writing code by hand and shipping fast.
 
 ## Projects
 
