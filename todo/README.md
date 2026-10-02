@@ -1,6 +1,4 @@
-# ONS Todo CLI
-
-`ons` means **One Night Stand** for this project: code written by hand (about 95%) in one night, without relying on AI for most of the implementation.
+# Todo CLI
 
 `todo` is a small Go command-line application for storing tasks in a CSV file. It can add tasks, list the stored tasks, change task status, and delete tasks.
 
