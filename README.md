@@ -10,9 +10,7 @@ In this repository, that means building projects the classic old-school way:
 
 ## Why this exists
 
-This repository exists because of this brief:
-
-> "Hey write Readme for this, ons means one night stand, for this one night stand means the code written by hand (95%) without ai in one night, write code in the classic cold old way"
+This repository represents a personal coding challenge: build useful software in one night, mostly by hand, in a classic old-school coding style.
 
 The goal is simple: move fast, think clearly, and ship working code by hand.
 
